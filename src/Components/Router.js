@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import PropTypes from "prop-types";
-import Auth from "./Auth";
+import Auth from "../Routes/Auth";
 import Home from "./Home";
 
 const LoggedInRoutes = () => (
