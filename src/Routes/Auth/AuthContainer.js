@@ -8,7 +8,7 @@ export default () => {
 
     //1.
     const userid = useInput(""); // 관리 도구 집합 { value, onChange, setValue }
-    const userpw = useInput("7110eda4d09e062aa5e4a390b0a572ac0d2c0220");
+    const userpw = useInput("");
 
     //2.
     //caught (in promise) TypeError: confirmSecretMutation is not a function

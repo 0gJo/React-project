@@ -68,7 +68,7 @@ const HeaderLink = styled(Link)`
 const ME = gql`
   {
       me{
-        userName
+        username
     }
   }
 `;
@@ -109,7 +109,7 @@ export default withRouter(({history}) => {
           {!data||!data.me?(<HeaderLink to="/#">
             <User />
           </HeaderLink>):(
-          <HeaderLink to={data.me.userName}>
+          <HeaderLink to={data.me.username}>
             <User />
           </HeaderLink>
           )
