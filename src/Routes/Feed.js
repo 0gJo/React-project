@@ -2,6 +2,7 @@ import React from "react"; // 안쓰더라도, 반드시 명시해줘야함 (rea
 import {gql} from 'apollo-boost';
 import {useQuery} from 'react-apollo-hooks';
 import Loader from '../Components/Loader';
+import Helmet from 'react-helmet';
 import styled from 'styled-components';
 import Post from '../Components/Post';
 
@@ -55,7 +56,11 @@ export default () => {
 
  
   // 컴포넌트가 담고있어야할 데이터들을 서버로부터 가져온뒤 컴포넌트에 속성으로 전달해준다. 
-  return <Wrapper>{loading&&<Loader/>}
+  return <Wrapper>
+    <Helmet>
+        <title>Feed | Prismagram</title>
+      </Helmet>
+    {loading&&<Loader/>}
   {!loading &&
         data &&
         data.seeFeed &&
@@ -63,6 +68,8 @@ export default () => {
           <Post
             key={post.id}
             id={post.id}
+            location={post.location}
+            caption={post.caption}
             user={post.user}
             files={post.files}
             likeCount={post.likeCount}

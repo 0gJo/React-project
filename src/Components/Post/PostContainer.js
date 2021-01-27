@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import PostPresenter from './PostPresenter';
+import useInput from '../../Hooks/useInput'
 const PostContainer = (
     {  
         id,
@@ -12,7 +13,20 @@ const PostContainer = (
         createdAt
     }
 ) => {
-    return <PostPresenter/>
+    const [isLikedS, setIsLiked] = useState(isLiked);
+    const [likeCountS, setLikeCount] = useState(likeCount);
+    const comment = useInput("");
+    return <PostPresenter
+        user={user}
+        files={files}
+        likeCount={likeCountS}
+        isLiked={isLikedS}
+        comments={comments}
+        createdAt={createdAt}
+        newComment={comment}
+        setIsLiked={setIsLiked}
+        setLikeCount={setLikeCount}
+    />
 }
 
 //컴포넌트 속성으로 전달된 데이터의 데이터타입을 정해준다
@@ -42,7 +56,7 @@ PostContainer.ProTypes = {
         }).isRequired
       })
     ).isRequired,
-    createdAt: PropTypes.string
+    createdAt: PropTypes.string.isRequired
   };
 
 export default PostContainer;

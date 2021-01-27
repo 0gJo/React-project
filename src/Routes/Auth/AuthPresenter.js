@@ -1,6 +1,7 @@
 import React from "react";
 import Input from '../../Components/Input';
 import styled from 'styled-components';
+import { Helmet } from "react-helmet";
 
 const Container = styled.div`
 padding-left: 1.5rem;
@@ -78,6 +79,9 @@ export default ({
 
     return (
         <Container>
+            <Helmet>
+            <title>Log In | Prismagram</title>
+          </Helmet>
             <RowCenter>
                 <Col className="col-md-9">
                     <Card className="my-5">
