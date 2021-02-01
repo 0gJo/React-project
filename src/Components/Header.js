@@ -1,12 +1,11 @@
 import React from "react";
 import styled from 'styled-components';
 import Input from './Input';
-import {gql} from 'apollo-boost';
 import { Link, withRouter } from 'react-router-dom';
 import useInput from '../Hooks/useInput';
 import { useQuery } from "react-apollo-hooks";
 import { Compass, HeartEmpty, User, Logo} from './Icons';
-
+import { ME } from "../SharedQueries";
 
 const Header = styled.header`
 width: 100%;
@@ -66,13 +65,6 @@ const HeaderLink = styled(Link)`
 }
 `;
 
-const ME = gql`
-  {
-      me{
-        username
-    }
-  }
-`;
 
 
 //withRouter : 컴포넌트를 router 처럼 사용하는 것 (router의 속성들에 접근가능)
@@ -97,7 +89,7 @@ export default withRouter(({history}) => {
         </HeaderColumn>
         <HeaderColumn>
           <form onSubmit={ onSearchSubmit }>
-            <SearchInput {...search} placeholder="Search" />
+            <SearchInput value ={search.value} onChange ={search.onChange} placeholder="Search" />
           </form>
         </HeaderColumn>
         <HeaderColumn>

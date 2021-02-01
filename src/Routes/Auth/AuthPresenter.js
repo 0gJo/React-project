@@ -92,8 +92,8 @@ export default ({
                                     <h1 className="h4 text-gray-900 mb-4">로그인</h1>
                                     </div>
                                     <form className="user" onSubmit={onSubmit}>
-                                        <Input className="form-control form-control-user" placeholder={"Username"} required {...userid} /><br />
-                                        <Input className="form-control form-control-user" type="password"   placeholder={"Password"} required {...userpw} /><br />
+                                        <Input className="form-control form-control-user" placeholder={"Username"} required value={userid.value} onChange={userid.onChange} /><br />
+                                        <Input className="form-control form-control-user" type="password"   placeholder={"Password"} required value={userpw.value} onChange={userpw.onChange} /><br />
                                         <PrimaryBtn className="btn-user btn-block">Log in</PrimaryBtn>
                                     </form>
                                     
